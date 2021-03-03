@@ -22,6 +22,7 @@ def itemToDictAndKey(item: str):
 
 def itemsToDict(items: list):
     items = map(lambda x: itemToDictAndKey(x), items) # world's fastest for loop
+    #items = [itemToDictAndKey(item) for item in items] #world's second fastest, but easier to read for loop
     return {key: value for (key, value) in items} # convert list into dict and return
 
 if __name__ == "__main__":
