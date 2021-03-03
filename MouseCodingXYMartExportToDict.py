@@ -33,7 +33,3 @@ if __name__ == "__main__":
     print(resultingDictionary) # bask in the glory of your dicts inside a dict
     print("runtime: %s seconds" % (time.time()- startTime))
     input('Press ENTER to exit')
-
-
-
-    
