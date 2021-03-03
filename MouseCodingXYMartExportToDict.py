@@ -1,4 +1,7 @@
+#usr/bin/env python
+
 from functools import reduce
+import time
 
 def fileToString(filename: str):
     with open(filename) as f:   # open file
@@ -18,12 +21,18 @@ def itemToDictAndKey(item: str):
     return title[0], result # return the ID and the Dict that belongs to the ID
 
 def itemsToDict(items: list):
-    items = list(map(lambda x: itemToDictAndKey(x), items)) # world's fastest for loop
+    items = map(lambda x: itemToDictAndKey(x), items) # world's fastest for loop
     return {key: value for (key, value) in items} # convert list into dict and return
 
 if __name__ == "__main__":
+    startTime = time.time()
     rawString = fileToString("Mouse_coding_X_Y_mart_export.txt") # put entire file into single string
     items = rawString.split(">")[1:] # split strings using the > that's at the start of every new title and dump the first one since it's always gonna be empty
     resultingDictionary = itemsToDict(items) # convert raw string into dict
     print(resultingDictionary) # bask in the glory of your dicts inside a dict
+    print("runtime: %s seconds" % (time.time()- startTime))
+    input('Press ENTER to exit')
+
+
+
     
